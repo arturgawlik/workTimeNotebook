@@ -12,3 +12,49 @@ a {
 a:hover {
     background-color: tomato;
 }
+
+
+form {
+    margin: 20px;
+}
+
+input {
+    border: none;
+    padding: 4px;
+    background-color: navajowhite;
+}
+
+button {
+    border: 1px solid black;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    font-size: 15px;
+    background-color: lightcoral;
+}
+
+button:hover {
+    background-color: rgb(221, 150, 150);
+}
+
+button:focus {
+    background-color: rgb(221, 150, 150);
+}
+
+button:active {
+    background-color: rgb(235, 134, 134);
+    transform: translate3d(1px, 1px, 1px);
+}
+
+form {
+    text-align: right;
+}
+
+label {
+    padding-left: 10px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 10px;
+}
+
