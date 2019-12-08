@@ -19,6 +19,12 @@ form {
 
 input {
     border: none;
+    padding: 4px;
+    background-color: navajowhite;
+}
+
+.valid input {
+    outline: 4px solid greenyellow;
 }
 
 button {
