@@ -1,7 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-    background-color: darkslategray;
-    margin: 0;
+    background-color: darkslateblue;
+    /* margin: 5px; */
     font-family: "Courier New", Courier, monospace;
-    color: whitesmoke;
+    color: rgb(212, 212, 212);
+    
+}
+
+*:focus {
+    outline: 1px solid blue;
 }

@@ -1,0 +1,14 @@
+:host {
+    text-align: center;
+}
+
+a {
+    text-decoration: underline;
+    cursor: pointer;
+    user-select: none;
+    color: inherit;
+}
+
+a:hover {
+    background-color: tomato;
+}

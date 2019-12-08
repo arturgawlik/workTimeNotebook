@@ -7,6 +7,7 @@ import { AuthorizedShellComponent } from './components/authorized-shell/authoriz
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UnauthorizedShellComponent } from './components/unauthorized-shell/unauthorized-shell.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { UnauthorizedShellComponent } from './components/unauthorized-shell/unau
     UnauthorizedShellComponent,
     AuthorizedShellComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
