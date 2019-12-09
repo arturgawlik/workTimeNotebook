@@ -27,8 +27,6 @@ input {
 button {
     border: 1px solid black;
     margin-top: 20px;
-    display: block;
-    margin-left: auto;
     font-size: 15px;
     background-color: lightcoral;
 }
@@ -55,6 +53,15 @@ label {
     margin-top: 20px;
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 10px;
+    row-gap: 5px;
 }
 
+span {
+    font-size: 13px;
+    grid-column-start: 2;
+    color: red;
+}
+
+ .invalid {
+    outline: 2px solid red;
+}
