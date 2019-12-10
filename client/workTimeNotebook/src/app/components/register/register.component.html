@@ -1,39 +1,40 @@
 <p>Add new or <a routerLink="/login">login</a> to existing.</p>
-<form [formGroup]="registerForm">
+<form [formGroup]="registerForm" (ngSubmit)="submitForm()">
     <label>
-        Emial:
+        *Emial:
         <input 
         formControlName="email"
         [class.invalid]="registerForm.get('email').invalid && registerForm.get('email').touched"
         >
         <ng-container *ngIf="registerForm.get('email').invalid && registerForm.get('email').touched">
-            <span *ngIf="registerForm.get('email').hasError('required')">Pole jest wymagane!</span>
-            <span *ngIf="registerForm.get('email').hasError('email')">Wartość dla tego pola nie jest właściwa!</span>
-            <span *ngIf="registerForm.get('email').hasError('emailTaken')">Dla tego adresu email istnieje juz konto!</span>
+            <span *ngIf="registerForm.get('email').hasError('required')">Email is required!</span>
+            <span *ngIf="registerForm.get('email').hasError('email')">Value for Email is invalid!</span>
+            <span *ngIf="registerForm.get('email').hasError('emailTaken')">For this Email address account already exists!</span>
         </ng-container>
     </label>
     <ng-container formGroupName="password">
         <label>
-            Password:
+            *Password:
             <input type="password" 
             formControlName="password"
             [class.invalid]="registerForm.get('password.password').invalid && registerForm.get('password.password').touched"
             >
             <ng-container *ngIf="registerForm.get('password.password').invalid && registerForm.get('password.password').touched">
-                    <span *ngIf="registerForm.get('password.password').hasError('required')">Pole jest wymagane!</span>
+                    <span *ngIf="registerForm.get('password.password').hasError('required')">Password is required!</span>
+                    <span *ngIf="registerForm.get('password.password').hasError('minlength')">Password must have at least 6 characters!</span>
             </ng-container>
         </label>
         <label>
-            Repeat password:
+            *Repeat password:
             <input type="password" 
             formControlName="passwordSecond"
             [class.invalid]="(registerForm.get('password.passwordSecond').invalid || registerForm.get('password').invalid) && registerForm.get('password.passwordSecond').touched"
             >
             <ng-container *ngIf="(registerForm.get('password.passwordSecond').invalid || registerForm.get('password').invalid) && registerForm.get('password.passwordSecond').touched">
-                    <span *ngIf="registerForm.get('password.passwordSecond').hasError('required')">Pole jest wymagane!</span>
-                    <span *ngIf="registerForm.get('password').hasError('passwordEquality')">Hasła nie są takie same!</span>
+                    <span *ngIf="registerForm.get('password.passwordSecond').hasError('required')">Repeat pasword is required!</span>
+                    <span *ngIf="registerForm.get('password').hasError('passwordEquality')">Passwod's are not equal!</span>
             </ng-container>
         </label>
     </ng-container>
-    <button [disabled]="!registerForm.valid">Creat new account</button>
+    <button type="submit" [disabled]="!registerForm.valid">Create new account</button>
 </form>

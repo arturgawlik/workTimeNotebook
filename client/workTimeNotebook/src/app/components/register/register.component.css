@@ -21,6 +21,7 @@ form {
 input {
     border: none;
     padding: 4px;
+    margin-left: 5px;
     background-color: navajowhite;
 }
 
