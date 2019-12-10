@@ -20,4 +20,9 @@ export class UserService {
         const newUser = await this._userRepository.save(user);
     }
 
+    async checkEmailNotTaken(email: string) {
+        const user = await this._userRepository.find({ email: email })
+
+        return !user.length;
+    }
 }

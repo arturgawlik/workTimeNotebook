@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,6 +9,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UnauthorizedShellComponent } from './components/unauthorized-shell/unauthorized-shell.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { BackendModule } from './modules/backend/backend.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,10 @@ import { FooterComponent } from './components/footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BackendModule
   ],
   providers: [],
   bootstrap: [AppComponent]

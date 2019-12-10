@@ -1,17 +1,39 @@
 <p>Add new or <a routerLink="/login">login</a> to existing.</p>
-<form>
+<form [formGroup]="registerForm">
     <label>
         Emial:
-        <input class="invalid">
-        <span>Pole jest wymagane!</span>
+        <input 
+        formControlName="email"
+        [class.invalid]="registerForm.get('email').invalid && registerForm.get('email').touched"
+        >
+        <ng-container *ngIf="registerForm.get('email').invalid && registerForm.get('email').touched">
+            <span *ngIf="registerForm.get('email').hasError('required')">Pole jest wymagane!</span>
+            <span *ngIf="registerForm.get('email').hasError('email')">Wartość dla tego pola nie jest właściwa!</span>
+            <span *ngIf="registerForm.get('email').hasError('emailTaken')">Dla tego adresu email istnieje juz konto!</span>
+        </ng-container>
     </label>
-    <label>
-        Password:
-        <input type="password">
-    </label>
-    <label>
-        Repeat password:
-        <input type="password">
-    </label>
-    <button>Creat new account</button>
+    <ng-container formGroupName="password">
+        <label>
+            Password:
+            <input type="password" 
+            formControlName="password"
+            [class.invalid]="registerForm.get('password.password').invalid && registerForm.get('password.password').touched"
+            >
+            <ng-container *ngIf="registerForm.get('password.password').invalid && registerForm.get('password.password').touched">
+                    <span *ngIf="registerForm.get('password.password').hasError('required')">Pole jest wymagane!</span>
+            </ng-container>
+        </label>
+        <label>
+            Repeat password:
+            <input type="password" 
+            formControlName="passwordSecond"
+            [class.invalid]="(registerForm.get('password.passwordSecond').invalid || registerForm.get('password').invalid) && registerForm.get('password.passwordSecond').touched"
+            >
+            <ng-container *ngIf="(registerForm.get('password.passwordSecond').invalid || registerForm.get('password').invalid) && registerForm.get('password.passwordSecond').touched">
+                    <span *ngIf="registerForm.get('password.passwordSecond').hasError('required')">Pole jest wymagane!</span>
+                    <span *ngIf="registerForm.get('password').hasError('passwordEquality')">Hasła nie są takie same!</span>
+            </ng-container>
+        </label>
+    </ng-container>
+    <button [disabled]="!registerForm.valid">Creat new account</button>
 </form>
