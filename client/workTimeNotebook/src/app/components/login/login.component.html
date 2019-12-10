@@ -1,14 +1,14 @@
 <p>Login to your account or <a routerLink="/register">add new</a>.</p>
-<form>
+<form [formGroup]="loginForm" (ngSubmit)="submitForm()">
     <div>
         <label>
             Emial:
-            <input class="valid">
+            <input formControlName="email">
         </label>
         <label>
             Password:
-            <input type="password">
+            <input type="password" formControlName="password">
         </label>
     </div>
-    <button>Login</button>
+    <button type="submit">Login</button>
 </form>

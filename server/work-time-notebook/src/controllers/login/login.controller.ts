@@ -9,7 +9,7 @@ export class LoginController {
     }
 
     @UseGuards(AuthGuard('local'))
-    @Post('auth/login')
+    @Post('login')
     login(@Request() req) {
         return this.authService.login(req.user);
     }

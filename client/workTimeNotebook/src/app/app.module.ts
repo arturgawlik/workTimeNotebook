@@ -25,7 +25,8 @@ import { BackendModule } from './modules/backend/backend.module';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    BackendModule
+    BackendModule,
+    // AuthModule dont need to import that module ?! - duno why this is working without that...
   ],
   providers: [],
   bootstrap: [AppComponent]

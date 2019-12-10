@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './modules/auth/auth.module';
-import { UsersModule } from './modules/users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { RegisterController } from './controllers/register/register.controller';
 import { DatabaseModule } from './modules/database/database.module';
@@ -14,7 +13,6 @@ import { LoginController } from './controllers/login/login.controller';
 @Module({
   imports: [
     AuthModule,
-    UsersModule,
     DatabaseModule
   ],
   controllers: [
