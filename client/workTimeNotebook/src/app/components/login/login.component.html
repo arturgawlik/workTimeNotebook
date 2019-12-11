@@ -1,14 +1,21 @@
 <p>Login to your account or <a routerLink="/register">add new</a>.</p>
 <form [formGroup]="loginForm" (ngSubmit)="submitForm()">
+    <span>{{communicat}}</span>
     <div>
         <label>
-            Emial:
-            <input formControlName="email">
+            *Emial:
+            <input formControlName="email" [class.invalid]="loginForm.get('email').invalid && loginForm.get('email').touched">
+            <ng-container *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched">
+                    <span *ngIf="loginForm.get('email').hasError('required')">Email is required!</span>
+            </ng-container>
         </label>
         <label>
-            Password:
-            <input type="password" formControlName="password">
+            *Password:
+            <input type="password" formControlName="password"  [class.invalid]="loginForm.get('password').invalid && loginForm.get('password').touched">
+            <ng-container *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
+                    <span *ngIf="loginForm.get('password').hasError('required')">Password is required!</span>
+            </ng-container>
         </label>
     </div>
-    <button type="submit">Login</button>
+    <button type="submit" [disabled]="!loginForm.valid">Login</button>
 </form>

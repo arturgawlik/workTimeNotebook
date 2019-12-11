@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  communicat = '';
+
   loginForm: FormGroup;
 
   constructor(private loginBackendService: LoginBackendService, private fb: FormBuilder,
@@ -29,13 +31,20 @@ export class LoginComponent implements OnInit {
   }
 
   submitForm() {
+    this.communicat = '';
     if (this.loginForm.valid) {
       this.loginBackendService.login(this.loginForm.get('email').value, this.loginForm.get('password').value)
-        .subscribe(r => {
-          console.log(r);
-          this.authService.setToken(r.access_token);
-          this.router.navigate(['']);
-        });
+        .subscribe(
+          r => {
+            console.log(r);
+            this.authService.setToken(r.access_token);
+            this.router.navigate(['']);
+          },
+          err => {
+            if (err.status === 401) {
+              this.communicat = 'Wrong email or password!';
+            }
+          });
     }
   }
 
