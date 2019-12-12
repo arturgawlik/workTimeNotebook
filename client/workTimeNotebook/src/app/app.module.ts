@@ -10,6 +10,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { UnauthorizedShellComponent } from './components/unauthorized-shell/unauthorized-shell.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { BackendModule } from './modules/backend/backend.module';
+import { TopbarComponent } from './components/topbar/topbar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { BackendModule } from './modules/backend/backend.module';
     AuthorizedShellComponent,
     LoginComponent,
     RegisterComponent,
-    FooterComponent
+    FooterComponent,
+    TopbarComponent
   ],
   imports: [
     BrowserModule,

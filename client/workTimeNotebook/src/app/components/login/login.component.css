@@ -70,8 +70,8 @@ span {
     outline: 2px solid red;
 }
 
-@media (max-width: 550px) {
+/* @media (max-width: 550px) {
     form div {
         grid-template-columns: 1fr;
     }
-}
+} */
