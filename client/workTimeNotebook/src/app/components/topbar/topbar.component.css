@@ -1,3 +1,19 @@
 :host {
     background-color: tomato;
+    display: grid;
+    height: 40px;
+    border-bottom: 1px solid black;
+    color: black;
+    justify-items: end;
+    align-items: center;
+}
+
+button {
+    border: 1px solid black;
+    background-color: lavender;
+    margin: 10px;
+}
+
+button:active {
+    transform: translate3d(1px, 1px, 1px);
 }

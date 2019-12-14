@@ -36,7 +36,6 @@ export class LoginComponent implements OnInit {
       this.loginBackendService.login(this.loginForm.get('email').value, this.loginForm.get('password').value)
         .subscribe(
           r => {
-            console.log(r);
             this.authService.setToken(r.access_token);
             this.router.navigate(['']);
           },

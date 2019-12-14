@@ -19,6 +19,10 @@ export class AuthService {
     return jwt;
   }
 
+  removeToken() {
+    window.localStorage.removeItem(_JWT_KEY);
+  }
+
   hasValidToken(): boolean {
     const jwt = window.localStorage.getItem(_JWT_KEY);
     // TODO: check is token valid?
