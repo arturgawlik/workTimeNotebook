@@ -6,7 +6,7 @@ export interface WorkTimeNoteItem {
     uri: string;
     startDate: Date;
     endDate: Date;
-    spentTimeInMinutes: number;
+    timeSpentInMinutes: number;
 }
 
 export interface WorkTimeNote {
