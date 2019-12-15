@@ -15,6 +15,9 @@ import { TopbarComponent } from './components/topbar/topbar.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers, initialState, effects } from './state/app.state';
 import { EffectsModule } from '@ngrx/effects';
+import { MainPanelComponent } from './components/main-panel/main-panel.component';
+import { AddEditWorkTimeItemComponent } from './components/add-edit-work-time-item/add-edit-work-time-item.component';
+import { WorkTimeItemListComponent } from './components/work-time-item-list/work-time-item-list.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { EffectsModule } from '@ngrx/effects';
     LoginComponent,
     RegisterComponent,
     FooterComponent,
-    TopbarComponent
+    TopbarComponent,
+    MainPanelComponent,
+    AddEditWorkTimeItemComponent,
+    WorkTimeItemListComponent
   ],
   imports: [
     BrowserModule,

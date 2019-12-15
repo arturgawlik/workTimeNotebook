@@ -1,0 +1,37 @@
+:host {
+    display: grid;
+    justify-items: center;
+    width: 100vw;
+}
+
+form {
+    
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    justify-items: center;
+    max-width: 1100px;
+}
+
+input {
+    border: none;
+    padding: 4px;
+    background-color: navajowhite;
+    margin-left: 5px;
+}
+
+label {
+    display: block;
+    padding: 4px;
+}
+
+@media (max-width: 970px) {
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    .form-item {
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
