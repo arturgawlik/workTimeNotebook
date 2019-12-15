@@ -1,4 +1,4 @@
-export interface WorkTimeNote {
+export interface WorkTimeNoteItem {
     id: string;
     type: string;
     customer: string;
@@ -9,4 +9,9 @@ export interface WorkTimeNote {
     spentTimeInMinutes: number;
 }
 
-export const initialState: WorkTimeNote[] = [] as WorkTimeNote[];
+export interface WorkTimeNote {
+    items: WorkTimeNoteItem[],
+    data: any,
+}
+
+export const initialState: WorkTimeNote = {} as WorkTimeNote;

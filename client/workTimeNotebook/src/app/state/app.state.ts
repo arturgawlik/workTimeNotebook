@@ -3,15 +3,15 @@ import { ActionReducerMap } from '@ngrx/store';
 
 
 export interface AppState {
-    workTimeNotes: workTimeNoteStore.WorkTimeNote[]
+    workTimeNote: workTimeNoteStore.WorkTimeNote
 }
 
 export const initialState: AppState = {
-    workTimeNotes: workTimeNoteStore.initialState
+    workTimeNote: workTimeNoteStore.initialState
 }
 
 export const reducers: ActionReducerMap<AppState> = {
-    workTimeNotes: workTimeNoteStore.reducer
+    workTimeNote: workTimeNoteStore.reducer
 }
 
 export const effects: Array<any> = [
