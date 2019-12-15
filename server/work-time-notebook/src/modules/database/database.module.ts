@@ -3,6 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from 'src/entities/user.entity';
 import { UserService } from './services/user.service';
 import { WorkTimeNote } from 'src/entities/workTimeNote.entity';
+import { WorkTimeNoteService } from './services/work-time-note.service';
 
 @Module({
     imports: [
@@ -13,10 +14,12 @@ import { WorkTimeNote } from 'src/entities/workTimeNote.entity';
         ]),
     ],
     exports: [
-        UserService
+        UserService,
+        WorkTimeNoteService
     ],
     providers: [
-        UserService
+        UserService,
+        WorkTimeNoteService
     ]
 })
 export class DatabaseModule { }
