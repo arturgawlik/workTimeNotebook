@@ -10,18 +10,38 @@ form {
     grid-template-columns: repeat(7, 1fr);
     justify-items: center;
     max-width: 1100px;
+    gap: 5px;
 }
 
 input {
     border: none;
     padding: 4px;
     background-color: navajowhite;
-    margin-left: 5px;
 }
 
 label {
     display: block;
     padding: 4px;
+}
+
+.save-btn {
+    padding: 4px;
+    border: 1px solid black;
+    /* margin-top: 15px; */
+    display: block;
+    background-color: lightcoral;
+    align-self: stretch;
+    justify-self: stretch;
+    grid-column: 1 / -2;
+}
+
+.cancel-btn {
+    padding: 4px;
+    border: 1px solid black;
+    display: block;
+    background-color: rgb(245, 215, 215);
+    align-self: stretch;
+    justify-self: stretch;
 }
 
 @media (max-width: 970px) {
