@@ -41,6 +41,6 @@
         </label>
         <input formControlName="timeSpendInMinutes">
     </div>
-    <button type="submit" class="save-btn">Save</button>
-    <button type="button" class="cancel-btn">Cancel</button>
+    <button [disabled]="!workTimeItemForm.valid" type="submit" class="save-btn">Save</button>
+    <button (click)="buildForm()" type="button" class="cancel-btn">Cancel</button>
 </form>

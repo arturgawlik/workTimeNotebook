@@ -17,4 +17,5 @@ export const _checkEmailNotTaken_method_url = 'checkEmailNotTaken/';
 export const _login_method_url = 'login/';
 
 // work time note
-export const _workTimeNote_method_url = 'get/';
+export const _workTimeNote_getAll_method_url = 'getAll/';
+export const _workTimeNote_save_method_url = 'save/';

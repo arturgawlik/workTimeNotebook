@@ -10,16 +10,20 @@ export class WorkTimeNoteController {
     constructor(private worktTimeNoteService: WorkTimeNoteService) {
     }
 
-    @Get('workTimeNote')
+    @Get('getAll')
     async getAll(@Request() req) {
         return this.worktTimeNoteService.getAll(req.user);
     }
 
-    @Post('workTimeNote')
-    async add(@Request() req, @Body() workTimeNote: WorkTimeNote) {
+    @Post('save')
+    async save(@Request() req, @Body() workTimeNote: WorkTimeNote) {
         workTimeNote.user = req.user;
-
-        return this.worktTimeNoteService.addNew(workTimeNote);
+        if (workTimeNote.id) {
+            return this.worktTimeNoteService.update(workTimeNote);
+        }
+        else {
+            return this.worktTimeNoteService.addNew(workTimeNote);
+        }        
     }
 
 }

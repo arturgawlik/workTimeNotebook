@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { _backend_url, _workTimeNote_controller_url, _workTimeNote_method_url } from '../../utils/utils';
+import { _backend_url, _workTimeNote_controller_url, _workTimeNote_getAll_method_url } from '../../utils/utils';
 import { WorkTimeNoteBackendModel } from '../../models/workTimeNoteBackendModel.model';
 
 @Injectable({
@@ -12,7 +12,12 @@ export class WorkTimeNoteBackendService {
   }
 
   getAll() {
-    const url = _backend_url + _workTimeNote_controller_url + _workTimeNote_method_url;
-    return this.httpClient.get<WorkTimeNoteBackendModel>(url);
+    const url = _backend_url + _workTimeNote_controller_url + _workTimeNote_getAll_method_url;
+    return this.httpClient.get<WorkTimeNoteBackendModel[]>(url);
+  }
+
+  save(workTimeNoteBackendModel: WorkTimeNoteBackendModel) {
+    const url = _backend_url + _workTimeNote_controller_url + _workTimeNote_getAll_method_url;
+    return this.httpClient.post<WorkTimeNoteBackendModel>(url, workTimeNoteBackendModel);
   }
 }

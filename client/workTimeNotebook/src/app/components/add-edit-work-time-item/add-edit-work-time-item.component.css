@@ -35,6 +35,23 @@ label {
     grid-column: 1 / -2;
 }
 
+.save-btn:hover {
+    background-color: rgb(221, 150, 150);
+}
+
+.save-btn:focus {
+    background-color: rgb(221, 150, 150);
+}
+
+.save-btn:active {
+    background-color: rgb(235, 134, 134);
+    transform: translate3d(1px, 1px, 1px);
+}
+
+.form-item {
+    min-height: 60px;
+}
+
 .cancel-btn {
     padding: 4px;
     border: 1px solid black;
@@ -43,6 +60,20 @@ label {
     align-self: stretch;
     justify-self: stretch;
 }
+
+.cancel-btn:hover {
+    background-color: rgb(245, 234, 234);
+}
+
+.cancel-btn:focus {
+    background-color: rgb(245, 234, 234);
+}
+
+.cancel-btn:active {
+    background-color: rgb(245, 215, 215);
+    transform: translate3d(1px, 1px, 1px);
+}
+
 
 @media (max-width: 970px) {
     form {
@@ -53,5 +84,10 @@ label {
         margin-top: 10px;
         display: grid;
         grid-template-columns: 1fr 1fr;
+        min-height: 0;
+    }
+
+    .save-btn {
+        margin-top: 10px;
     }
 }

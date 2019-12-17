@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/state/app.state';
 
 @Component({
   selector: 'app-add-edit-work-time-item',
@@ -10,7 +12,7 @@ export class AddEditWorkTimeItemComponent implements OnInit {
 
   workTimeItemForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private store: Store<AppState>) { }
 
   ngOnInit() {
     this.buildForm();
@@ -27,6 +29,12 @@ export class AddEditWorkTimeItemComponent implements OnInit {
       'endDate': ['', Validators.required],
       'timeSpendInMinutes': ['', Validators.required]
     });
+  }
+
+  submitForm() {
+    if (this.workTimeItemForm.valid) {
+      this.store.dispatch()
+    }
   }
 
 }
