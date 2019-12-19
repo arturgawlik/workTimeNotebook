@@ -9,7 +9,7 @@ import { APP_INTERCEPTOR, APP_PIPE } from '@nestjs/core';
 import { DataInterceptor } from './interceptors/data.interceptor';
 import { DataPipe } from './pipes/data.pipe';
 import { LoginController } from './controllers/login/login.controller';
-import { WorkTimeNoteController } from './controllers/work-time-note/work-time-note/work-time-note.controller';
+import { WorkTimeNoteController } from './controllers/work-time-note/work-time-note.controller';
 
 @Module({
   imports: [

@@ -12,7 +12,7 @@ import { DatabaseModule } from '../database/database.module';
     DatabaseModule,
     JwtModule.register({
       secret: jwtConstants.secret,
-      signOptions: { expiresIn: '60s' },
+      signOptions: { expiresIn: '24h' },
     }),
     PassportModule.register({defaultStrategy: 'jwt'})
   ],

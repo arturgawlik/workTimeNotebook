@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/state/app.state';
+import { StartInitWorkTimeNote } from 'src/app/state/workTimeNote';
 
 @Component({
   selector: 'app-authorized-shell',
@@ -7,9 +10,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthorizedShellComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit() {
+    this.store.dispatch(new StartInitWorkTimeNote(null));
   }
 
 }

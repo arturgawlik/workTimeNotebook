@@ -9,9 +9,15 @@ export interface WorkTimeNoteItem {
     timeSpentInMinutes: number;
 }
 
-export interface WorkTimeNote {
-    items: WorkTimeNoteItem[],
-    data: any,
+export interface AddEditMessage {
+    type: string;
+    message: string;
+    handled: boolean;
 }
 
-export const initialState: WorkTimeNote = {} as WorkTimeNote;
+export interface WorkTimeNote {
+    items: WorkTimeNoteItem[],
+    addEditMessages: AddEditMessage[]
+}
+
+export const initialState: WorkTimeNote = {items: [], addEditMessages: []} as WorkTimeNote;

@@ -14,8 +14,16 @@ export class WorkTimeNoteService {
         if (!workTimeNote) {
             throw new HttpException('workTimeNote can\'t be null when adding new.', HttpStatus.BAD_REQUEST);
         }
-
-        return this._workTimeNoteRepository.save(workTimeNote);
+        const entity = new WorkTimeNote();
+        entity.customer = workTimeNote.customer;
+        entity.description = workTimeNote.description;
+        entity.endDate = workTimeNote.endDate;
+        entity.startDate = workTimeNote.startDate;
+        entity.timeSpentInMinutes = workTimeNote.timeSpentInMinutes;
+        entity.type = workTimeNote.type;
+        entity.uri = workTimeNote.uri;
+        entity.user = workTimeNote.user;
+        return this._workTimeNoteRepository.save(entity);
     }
 
     update(workTimeNote: WorkTimeNote) {

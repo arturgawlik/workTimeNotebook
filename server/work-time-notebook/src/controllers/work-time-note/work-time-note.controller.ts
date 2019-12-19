@@ -12,17 +12,18 @@ export class WorkTimeNoteController {
 
     @Get('getAll')
     async getAll(@Request() req) {
-        return this.worktTimeNoteService.getAll(req.user);
+        return await this.worktTimeNoteService.getAll(req.user);
     }
 
+    
     @Post('save')
     async save(@Request() req, @Body() workTimeNote: WorkTimeNote) {
         workTimeNote.user = req.user;
         if (workTimeNote.id) {
-            return this.worktTimeNoteService.update(workTimeNote);
+            return await this.worktTimeNoteService.update(workTimeNote);
         }
         else {
-            return this.worktTimeNoteService.addNew(workTimeNote);
+            return await this.worktTimeNoteService.addNew(workTimeNote);
         }        
     }
 
