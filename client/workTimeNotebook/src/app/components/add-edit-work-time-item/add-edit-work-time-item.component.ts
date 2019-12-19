@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { AppState } from 'src/app/state/app.state';
 import { StartAddWorkTimeNote } from 'src/app/state/workTimeNote';
 
@@ -17,18 +17,21 @@ export class AddEditWorkTimeItemComponent implements OnInit {
 
   ngOnInit() {
     this.buildForm();
+    this.store.pipe(select((s: AppState) => s.workTimeNote)).subscribe(s => {
+      // console.log(s);
+    });
   }
 
   buildForm() {
     this.workTimeItemForm = this.fb.group({
       'id': [''],
-      'type': ['', Validators.required],
-      'customer': ['', Validators.required],
-      'description': ['', Validators.required],
-      'uri': ['', Validators.required],
-      'startDate': ['', Validators.required],
-      'endDate': ['', Validators.required],
-      'timeSpendInMinutes': ['', Validators.required]
+      'type': ['Otrs', Validators.required],
+      'customer': ['Futuriti', Validators.required],
+      'description': ['Problemy z monitoringiem', Validators.required],
+      'uri': ['google.com', Validators.required],
+      'startDate': ['11.11.11', Validators.required],
+      'endDate': ['11.11.11', Validators.required],
+      'timeSpendInMinutes': ['63', Validators.required]
     });
   }
 

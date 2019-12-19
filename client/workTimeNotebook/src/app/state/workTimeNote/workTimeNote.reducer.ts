@@ -5,7 +5,7 @@ import { WorkTimeNote } from './workTimeNote.state';
 
 
 export function reducer(state: WorkTimeNote, action: actions.WorkTimeNoteAction): any {
-    switch(action.type) {
+    switch (action.type) {
         case COMPLETE_INIT_WORK_TIME_NOTE: {
             state.items = action.payload;
             return {
@@ -13,9 +13,9 @@ export function reducer(state: WorkTimeNote, action: actions.WorkTimeNoteAction)
             }
         }
         case COMPLETE_ADD_WORK_TIME_NOTE: {
-            state.items.push(action.payload);
             return {
-                ...state
+                items: [...state.items, action.payload],
+                addEditMessages: [...state.addEditMessages, { type: 'success', message: 'Item sucessfull saved.', handled: false }]
             }
         }
         default: {
