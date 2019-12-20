@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store, select } from '@ngrx/store';
-import { AppState } from 'src/app/state/app.state';
+import { AppState, getMessage } from 'src/app/state/app.state';
 import { StartAddWorkTimeNote } from 'src/app/state/workTimeNote';
 
 @Component({
@@ -17,7 +17,7 @@ export class AddEditWorkTimeItemComponent implements OnInit {
 
   ngOnInit() {
     this.buildForm();
-    this.store.pipe(select((s: AppState) => s.workTimeNote)).subscribe(s => {
+    this.store.pipe(select(getMessage)).subscribe(s => {
       // console.log(s);
     });
   }

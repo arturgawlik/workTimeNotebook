@@ -15,7 +15,7 @@ export function reducer(state: WorkTimeNote, action: actions.WorkTimeNoteAction)
         case COMPLETE_ADD_WORK_TIME_NOTE: {
             return {
                 items: [...state.items, action.payload],
-                addEditMessages: [...state.addEditMessages, { type: 'success', message: 'Item sucessfull saved.', handled: false }]
+                addEditMessages: { type: 'success', message: 'Item sucessfull saved.' }
             }
         }
         default: {

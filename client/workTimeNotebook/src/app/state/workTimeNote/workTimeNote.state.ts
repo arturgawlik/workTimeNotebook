@@ -12,12 +12,13 @@ export interface WorkTimeNoteItem {
 export interface AddEditMessage {
     type: string;
     message: string;
-    handled: boolean;
 }
 
 export interface WorkTimeNote {
     items: WorkTimeNoteItem[],
-    addEditMessages: AddEditMessage[]
+    addEditMessages: AddEditMessage
 }
 
-export const initialState: WorkTimeNote = {items: [], addEditMessages: []} as WorkTimeNote;
+export const initialState: WorkTimeNote = { items: [], addEditMessages: null } as WorkTimeNote;
+
+
