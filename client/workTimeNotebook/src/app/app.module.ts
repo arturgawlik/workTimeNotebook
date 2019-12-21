@@ -20,6 +20,7 @@ import { MainPanelComponent } from './components/main-panel/main-panel.component
 import { AddEditWorkTimeItemComponent } from './components/add-edit-work-time-item/add-edit-work-time-item.component';
 import { WorkTimeItemListComponent } from './components/work-time-item-list/work-time-item-list.component';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { NofyficationComponent } from './components/nofyfication/nofyfication.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     TopbarComponent,
     MainPanelComponent,
     AddEditWorkTimeItemComponent,
-    WorkTimeItemListComponent
+    WorkTimeItemListComponent,
+    NofyficationComponent
   ],
   imports: [
     BrowserModule,

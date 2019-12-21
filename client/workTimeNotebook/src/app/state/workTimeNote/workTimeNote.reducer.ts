@@ -1,5 +1,5 @@
 import * as actions from './workTimeNote.actions';
-import { COMPLETE_INIT_WORK_TIME_NOTE, COMPLETE_ADD_WORK_TIME_NOTE } from './workTimeNote.actions';
+import { COMPLETE_INIT_WORK_TIME_NOTE, COMPLETE_ADD_WORK_TIME_NOTE, ERROR_ADD_WORK_TIME_NOTE } from './workTimeNote.actions';
 import { WorkTimeNote } from './workTimeNote.state';
 
 
@@ -15,7 +15,13 @@ export function reducer(state: WorkTimeNote, action: actions.WorkTimeNoteAction)
         case COMPLETE_ADD_WORK_TIME_NOTE: {
             return {
                 items: [...state.items, action.payload],
-                addEditMessages: { type: 'success', message: 'Item sucessfull saved.' }
+                notyfication: { type: 'success', message: 'Item sucessfull saved.' }
+            }
+        }
+        case ERROR_ADD_WORK_TIME_NOTE: {
+            return {
+                ...state,
+                notyfication: { type: 'danger', message: 'Error saving item.' }
             }
         }
         default: {

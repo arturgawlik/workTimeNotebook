@@ -1,0 +1,7 @@
+<div class="notyfication" 
+    [class.success]="type === 'success'"
+    [class.warning]="type === 'warning'"
+    [class.danger]="type === 'danger'"
+    (click)="remove()">
+    {{message}}
+</div>

@@ -9,16 +9,16 @@ export interface WorkTimeNoteItem {
     timeSpentInMinutes: number;
 }
 
-export interface AddEditMessage {
+export interface Notyfication {
     type: string;
     message: string;
 }
 
 export interface WorkTimeNote {
     items: WorkTimeNoteItem[],
-    addEditMessages: AddEditMessage
+    notyfication: Notyfication
 }
 
-export const initialState: WorkTimeNote = { items: [], addEditMessages: null } as WorkTimeNote;
+export const initialState: WorkTimeNote = { items: [], notyfication: null } as WorkTimeNote;
 
 

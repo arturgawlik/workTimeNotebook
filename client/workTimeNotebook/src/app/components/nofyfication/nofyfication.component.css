@@ -1,0 +1,22 @@
+:host {
+    position: fixed;
+    width: 100vw;
+    bottom: 35px;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.notyfication {
+    text-align: center;
+    padding: 10px 30px;
+    margin: 10px;
+}
+
+.success {
+    background-color: #00897b;
+}
+
+.danger {
+    background-color: tomato;
+}

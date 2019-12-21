@@ -18,5 +18,5 @@ export const effects: Array<any> = [
     workTimeNoteStore.WorkTimeNoteEffects
 ];
 
-export const getMessage = (s: AppState) => s.workTimeNote.addEditMessages;
+export const getNotyfication = (s: AppState) => s.workTimeNote.notyfication;
 export const getItems = (s: AppState) => s.workTimeNote.items;
