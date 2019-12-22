@@ -2,6 +2,8 @@
     [class.success]="noty.type === 'success'"
     [class.warning]="noty.type === 'warning'"
     [class.danger]="noty.type === 'danger'"
-    (click)="remove(i)">
+    (click)="remove(i)"
+    (mouseover)="mouseover(i)"
+    (mouseout)="mouseout(i)">
     {{noty.message}}
 </div>

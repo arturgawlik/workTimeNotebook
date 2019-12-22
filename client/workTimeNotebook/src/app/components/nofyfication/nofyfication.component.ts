@@ -23,10 +23,8 @@ export class NofyficationComponent implements OnInit, OnDestroy {
   ngOnInit() {
     const sub = this.notyfication$.subscribe(n => {
       if (n) {
-        this.notyfications.push({ message: n.message, type: n.type });
-        setTimeout(() => {
-          this.notyfications.shift();
-        }, 3000);
+        const index = this.notyfications.push({ message: n.message, type: n.type }) - 1;
+        this.generateTimeout(index);
       }
     });
     this.subs.push(sub);
@@ -42,6 +40,21 @@ export class NofyficationComponent implements OnInit, OnDestroy {
 
   remove(index: number) {
     this.notyfications.splice(index, 1);
+  }
+
+  mouseover(index: number) {
+    clearTimeout(this.notyfications[index].timer);
+  }
+
+  mouseout(index: number) {
+    this.generateTimeout(index);
+  }
+
+  private generateTimeout(index: number) {
+    const timer = setTimeout(() => {
+      this.remove(index);
+    }, 3000);
+    this.notyfications[index].timer = timer;
   }
 
 }
