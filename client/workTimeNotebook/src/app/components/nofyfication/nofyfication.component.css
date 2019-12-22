@@ -11,6 +11,7 @@
     text-align: center;
     padding: 10px 30px;
     margin: 10px;
+    border: 1px solid black;
 }
 
 .success {

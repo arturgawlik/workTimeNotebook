@@ -1,7 +1,7 @@
-<div class="notyfication" 
-    [class.success]="type === 'success'"
-    [class.warning]="type === 'warning'"
-    [class.danger]="type === 'danger'"
-    (click)="remove()">
-    {{message}}
+<div *ngFor="let noty of notyfications; let i = index" class="notyfication" 
+    [class.success]="noty.type === 'success'"
+    [class.warning]="noty.type === 'warning'"
+    [class.danger]="noty.type === 'danger'"
+    (click)="remove(i)">
+    {{noty.message}}
 </div>
