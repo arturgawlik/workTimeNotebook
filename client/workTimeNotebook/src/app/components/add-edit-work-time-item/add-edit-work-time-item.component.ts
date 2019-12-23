@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Store, select } from '@ngrx/store';
-import { AppState, getNotyfication } from 'src/app/state/app.state';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/state/app.state';
 import { StartAddWorkTimeNote } from 'src/app/state/workTimeNote';
 
 @Component({
@@ -26,8 +26,8 @@ export class AddEditWorkTimeItemComponent implements OnInit {
       'customer': ['Futuriti', Validators.required],
       'description': ['Problemy z monitoringiem', Validators.required],
       'uri': ['google.com', Validators.required],
-      'startDate': ['11.11.11', Validators.required],
-      'endDate': ['11.11.11', Validators.required],
+      'startDate': [new Date().toISOString().substring(0,19), Validators.required],
+      'endDate': [new Date().toISOString().substring(0,19), Validators.required],
       'timeSpendInMinutes': ['63', Validators.required]
     });
   }
