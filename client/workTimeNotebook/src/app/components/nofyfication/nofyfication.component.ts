@@ -53,7 +53,7 @@ export class NofyficationComponent implements OnInit, OnDestroy {
   private generateTimeout(index: number) {
     const timer = setTimeout(() => {
       this.remove(index);
-    }, 3000);
+    }, 1000);
     this.notyfications[index].timer = timer;
   }
 

@@ -3,7 +3,7 @@
     [class.warning]="noty.type === 'warning'"
     [class.danger]="noty.type === 'danger'"
     (click)="remove(i)"
-    (mouseover)="mouseover(i)"
-    (mouseout)="mouseout(i)">
+    (mouseenter)="mouseover(i)"
+    (mouseleave)="mouseout(i)">
     {{noty.message}}
 </div>
