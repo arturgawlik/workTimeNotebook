@@ -1,10 +1,12 @@
-import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, HostListener, Renderer2, Input, OnInit } from '@angular/core';
 import { Observer, Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { AppState } from '../state/app.state';
 
 @Directive({
   selector: '[appAutoComplete]'
 })
-export class AutoCompleteDirective {
+export class AutoCompleteDirective implements OnInit {
 
   @HostListener('input', ['$event']) onInput(e: any) {
     this.generateNewAutocoplete(this.el.nativeElement.value);
@@ -14,11 +16,19 @@ export class AutoCompleteDirective {
     this.generateNewAutocoplete(this.el.nativeElement.value);
   }
 
-  constructor(private el: ElementRef<HTMLInputElement>, private renderer: Renderer2) {
+  @Input()
+  type: 'type' | 'dsadsa';
+
+  constructor(private el: ElementRef<HTMLInputElement>, private store: Store<AppState>) {
+  }
+
+  ngOnInit(): void {
+    if (!this.type) {
+      throw new Error('storeName is required when using appAutoComplete directive.');
+    }
   }
 
   generateNewAutocoplete(value: string) {
-    
   }
 
 }

@@ -1,5 +1,8 @@
 export interface Autocomplete {
-    items: string[]
+    types: string[],
+    customers: string[],
+    descriptions: string[],
+    urls: string[]
 }
 
-export const initialState: Autocomplete = { items: [] } as Autocomplete;
+export const initialState: Autocomplete = { types: [], customers: [], descriptions: [], urls: [] } as Autocomplete;
