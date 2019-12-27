@@ -22,6 +22,7 @@ import { WorkTimeItemListComponent } from './components/work-time-item-list/work
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { NofyficationComponent } from './components/nofyfication/nofyfication.component';
 import { AutoCompleteDirective } from './directives/auto-complete.directive';
+import { AutocompleteComponent } from './components/autocomplete/autocomplete.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { AutoCompleteDirective } from './directives/auto-complete.directive';
     AddEditWorkTimeItemComponent,
     WorkTimeItemListComponent,
     NofyficationComponent,
-    AutoCompleteDirective
+    // AutoCompleteDirective,
+    AutocompleteComponent
   ],
   imports: [
     BrowserModule,
