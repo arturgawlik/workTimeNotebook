@@ -1,1 +1,5 @@
-<p>autocomplete works!</p>
+<div>
+    <ul>
+        <li *ngFor="let suggestion of autocompleteSugetions$ | async">{{suggestion}}</li>
+    </ul>
+</div>

@@ -4,15 +4,18 @@
             Type:
         </label>
         <div>
-            <input appAutoComplete="type" formControlName="type">
-            <app-autocomplete></app-autocomplete>
+            <input #typeRef formControlName="type">
+            <app-autocomplete [ref]="typeRef" [fc]="workTimeItemForm.get('type')" autocompleteType="type"></app-autocomplete>
         </div>
     </div>
     <div class="form-item">
         <label>
             Customer:
         </label>
-        <input formControlName="customer">
+        <div>
+            <input #customerRef formControlName="customer">
+            <app-autocomplete [ref]="customerRef" [fc]="workTimeItemForm.get('customer')" autocompleteType="customer"></app-autocomplete>
+        </div>
     </div>
     <div class="form-item">
         <label>

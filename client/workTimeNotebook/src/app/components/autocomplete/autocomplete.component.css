@@ -1,3 +1,30 @@
 :host {
+    display: block;
+    position: relative;
+}
+
+div {
+    opacity: 0.95;
+    background-color: royalblue;
     position: absolute;
+    left: 0;
+    right: 0;
+    font-size: 12px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    padding: 5px;
+    user-select: none;
+}
+
+li:hover {
+    background-color: cadetblue;
+    transform: scale(1.02);
+    outline: 1px solid rgb(41, 53, 90);
 }
