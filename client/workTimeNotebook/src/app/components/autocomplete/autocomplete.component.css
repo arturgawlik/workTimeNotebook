@@ -23,7 +23,7 @@ li {
     user-select: none;
 }
 
-li:hover {
+.selected {
     background-color: cadetblue;
     transform: scale(1.02);
     outline: 1px solid rgb(41, 53, 90);

@@ -5,7 +5,8 @@
         </label>
         <div>
             <input #typeRef formControlName="type">
-            <app-autocomplete [ref]="typeRef" [fc]="workTimeItemForm.get('type')" autocompleteType="type"></app-autocomplete>
+            <app-autocomplete [ref]="typeRef" [fc]="workTimeItemForm.get('type')" autocompleteType="type">
+            </app-autocomplete>
         </div>
     </div>
     <div class="form-item">
@@ -14,20 +15,29 @@
         </label>
         <div>
             <input #customerRef formControlName="customer">
-            <app-autocomplete [ref]="customerRef" [fc]="workTimeItemForm.get('customer')" autocompleteType="customer"></app-autocomplete>
+            <app-autocomplete [ref]="customerRef" [fc]="workTimeItemForm.get('customer')" autocompleteType="customer">
+            </app-autocomplete>
         </div>
     </div>
     <div class="form-item">
         <label>
             Description:
         </label>
-        <input formControlName="description">
+        <div>
+            <input #descriptionRef formControlName="description">
+            <app-autocomplete [ref]="descriptionRef" [fc]="workTimeItemForm.get('description')"
+                autocompleteType="description"></app-autocomplete>
+        </div>
     </div>
     <div class="form-item">
         <label>
             Url:
         </label>
-        <input formControlName="uri">
+        <div>
+            <input #uriRef formControlName="uri">
+            <app-autocomplete [ref]="uriRef" [fc]="workTimeItemForm.get('uri')" autocompleteType="url">
+            </app-autocomplete>
+        </div>
     </div>
     <div class="form-item">
         <label>

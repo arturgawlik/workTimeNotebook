@@ -6,6 +6,7 @@ import { Store } from '@ngrx/store';
 import { AppState, getAutocompleteTypes, getAutocompleteCustomers, getAutocompleteDescriptions, getAutocompleteUrls, getItems } from 'src/app/state/app.state';
 import { SetAutocompleteTypes, SetAutocompleteCustomers, SetAutocompleteDescriptions, SetAutocompleteUrls } from 'src/app/state/autocomplete';
 import { DOCUMENT } from '@angular/common';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-autocomplete',
@@ -17,11 +18,16 @@ export class AutocompleteComponent implements OnInit, OnDestroy {
   private disposeFocusListner: Function;
   private disposeFocusoutListner: Function;
   private disposeInputListner: Function;
+  private disposeClickListner: Function;
+  private disposeKeyupListner: Function;
 
   private subscriptions: Subscription[] = [];
   private items: WorkTimeNoteItem[] = [];
+  private length: number = null;
 
   autocompleteSugetions$: Observable<string[]>;
+  autocompleteSugetions: string[];
+  selectedIndex: number = null;
 
   @Input()
   fc: FormControl;
@@ -45,27 +51,69 @@ export class AutocompleteComponent implements OnInit, OnDestroy {
     }
 
     this.disposeFocusListner = this.renderer.listen(this.ref, 'focus', this.generateNewAutocoplete.bind(this));
-    // this.disposeFocusoutListner = this.renderer.listen(this.ref, 'blur', this.setAutocompleteEmpty.bind(this));
     this.disposeInputListner = this.renderer.listen(this.ref, 'input', this.generateNewAutocoplete.bind(this));
-    this.renderer.listen(this.document, 'click', (event: any) => {
+    this.disposeClickListner = this.renderer.listen(this.document, 'click', (event: any) => {
       if (!this.el.nativeElement.contains(event.target) && !this.ref.contains(event.target))
-      this.setAutocompleteEmpty();
+        this.setAutocompleteEmpty();
     });
+    this.disposeKeyupListner = this.renderer.listen(this.ref, 'keydown', this.keyDown.bind(this));
 
     this.initSugestions();
     this.initItems();
+
+    const sub = this.autocompleteSugetions$.subscribe(s => {
+      this.length = s.length;
+      this.autocompleteSugetions = s;
+    });
+    this.subscriptions.push(sub);
   }
 
   ngOnDestroy() {
     this.disposeFocusListner();
     this.disposeFocusoutListner();
     this.disposeInputListner();
+    this.disposeClickListner();
+    this.disposeKeyupListner();
     this.subscriptions.forEach(s => s.unsubscribe());
   }
 
   clicked(value: string) {
     this.setAutocompleteEmpty();
     this.fc.setValue(value);
+  }
+
+  mouseover(index: number, value: string) {
+    this.selectedIndex = index;
+    this.fc.setValue(value);
+  }
+
+  private keyDown(e: KeyboardEvent) {
+    if (e.code === 'Escape') {
+      this.setAutocompleteEmpty();
+    } else if (e.code === 'ArrowDown') {
+      this.handleArrowDown();
+    } else if (e.code === 'ArrowUp') {
+      this.handleArrowUp();
+    } else if (e.code === 'Tab') {
+      this.setAutocompleteEmpty();
+    }
+  }
+
+  private handleArrowUp() {
+    if (this.selectedIndex > 0) {
+      this.selectedIndex--;
+    }
+    this.fc.setValue(this.autocompleteSugetions[this.selectedIndex]);
+  }
+
+  private handleArrowDown() {
+    if (this.selectedIndex === null) {
+      this.selectedIndex = 0;
+    }
+    else if (this.selectedIndex + 1 < this.length) {
+      this.selectedIndex++;
+    }
+    this.fc.setValue(this.autocompleteSugetions[this.selectedIndex]);
   }
 
   private initSugestions() {
@@ -106,29 +154,37 @@ export class AutocompleteComponent implements OnInit, OnDestroy {
     switch (this.autocompleteType) {
       case 'type': {
         const newItems = this.items
-                                  .map(i => i.type)
-                                  .filter((v, i, a) => a.indexOf(v) === i)
-                                  .filter(i => i.indexOf(value) > -1)
-                                  .slice(0, 5);
+          .map(i => i.type)
+          .filter((v, i, a) => a.indexOf(v) === i)
+          .filter(i => i.indexOf(value) > -1)
+          .slice(0, 5);
         this.store.dispatch(new SetAutocompleteTypes(newItems));
         break;
       }
       case 'customer': {
         const newItems = this.items
-                                  .map(i => i.customer)
-                                  .filter((v, i, a) => a.indexOf(v) === i)
-                                  .filter(i => i.indexOf(value) > -1)
-                                  .slice(0, 5);
+          .map(i => i.customer)
+          .filter((v, i, a) => a.indexOf(v) === i)
+          .filter(i => i.indexOf(value) > -1)
+          .slice(0, 5);
         this.store.dispatch(new SetAutocompleteCustomers(newItems));
         break;
       }
       case 'description': {
-        const newItems = this.items.filter(i => i.description.indexOf(value) > -1).slice(0, 5).map(i => i.description);;
+        const newItems = this.items
+        .map(i => i.description)
+        .filter((v, i, a) => a.indexOf(v) === i)
+        .filter(i => i.indexOf(value) > -1)
+        .slice(0, 5);
         this.store.dispatch(new SetAutocompleteDescriptions(newItems));
         break;
       }
       case 'url': {
-        const newItems = this.items.filter(i => i.uri.indexOf(value) > -1).slice(0, 5).map(i => i.uri);;
+        const newItems = this.items
+        .map(i => i.uri)
+        .filter((v, i, a) => a.indexOf(v) === i)
+        .filter(i => i.indexOf(value) > -1)
+        .slice(0, 5);
         this.store.dispatch(new SetAutocompleteUrls(newItems));
         break;
       }
