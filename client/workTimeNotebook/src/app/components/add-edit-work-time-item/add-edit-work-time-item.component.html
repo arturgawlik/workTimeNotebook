@@ -1,61 +1,61 @@
 <form [formGroup]="workTimeItemForm" (ngSubmit)="submitForm()">
     <div class="form-item">
-        <label>
+        <label for="type">
             Type:
         </label>
         <div>
-            <input #typeRef formControlName="type">
+            <input #typeRef formControlName="type" id="type" autocomplete="off">
             <app-autocomplete [ref]="typeRef" [fc]="workTimeItemForm.get('type')" autocompleteType="type">
             </app-autocomplete>
         </div>
     </div>
     <div class="form-item">
-        <label>
+        <label for="customer">
             Customer:
         </label>
         <div>
-            <input #customerRef formControlName="customer">
+            <input #customerRef formControlName="customer" id="customer" autocomplete="off">
             <app-autocomplete [ref]="customerRef" [fc]="workTimeItemForm.get('customer')" autocompleteType="customer">
             </app-autocomplete>
         </div>
     </div>
     <div class="form-item">
-        <label>
+        <label for="description">
             Description:
         </label>
         <div>
-            <input #descriptionRef formControlName="description">
+            <input #descriptionRef formControlName="description" id="description" autocomplete="off">
             <app-autocomplete [ref]="descriptionRef" [fc]="workTimeItemForm.get('description')"
                 autocompleteType="description"></app-autocomplete>
         </div>
     </div>
     <div class="form-item">
-        <label>
+        <label for="url">
             Url:
         </label>
         <div>
-            <input #uriRef formControlName="uri">
+            <input #uriRef formControlName="uri" id="url" autocomplete="off">
             <app-autocomplete [ref]="uriRef" [fc]="workTimeItemForm.get('uri')" autocompleteType="url">
             </app-autocomplete>
         </div>
     </div>
     <div class="form-item">
-        <label>
+        <label for="startDate">
             Start date:
         </label>
-        <input formControlName="startDate">
+        <input formControlName="startDate" id="startDate" autocomplete="off">
     </div>
     <div class="form-item">
-        <label>
+        <label for="endDate">
             End date:
         </label>
-        <input formControlName="endDate">
+        <input formControlName="endDate" id="endDate" autocomplete="off">
     </div>
     <div class="form-item">
-        <label>
+        <label for="spendTime">
             Spend Time:
         </label>
-        <input formControlName="timeSpendInMinutes">
+        <input formControlName="timeSpendInMinutes" id="spendTime" autocomplete="off">
     </div>
     <button [disabled]="!workTimeItemForm.valid" type="submit" class="save-btn">Save</button>
     <button (click)="buildForm()" type="button" class="cancel-btn">Cancel</button>

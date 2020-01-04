@@ -1,9 +1,8 @@
 <div>
     <ul>
-        <li [class.selected]="suggestion === (autocompleteSugetions$ | async)[selectedIndex]" *ngFor="let suggestion of autocompleteSugetions$ | async; let i = index;" 
-        (click)="clicked(suggestion)" 
-        (mouseover)="mouseover(i, suggestion)"
-        >
+        <li [class.selected]="suggestion === (autocompleteSugetions$ | async)[selectedIndex]"
+            *ngFor="let suggestion of autocompleteSugetions$ | async; let i = index;" (click)="clicked(suggestion)"
+            (mouseover)="mouseover(i, suggestion)">
             {{suggestion}}
         </li>
     </ul>
