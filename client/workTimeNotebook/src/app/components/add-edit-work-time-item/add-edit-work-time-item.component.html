@@ -1,62 +1,62 @@
 <form [formGroup]="workTimeItemForm" (ngSubmit)="submitForm()">
     <div class="form-item">
-        <label for="type">
+        <label for="add-edit-work-time-form-type">
             Type:
         </label>
         <div>
-            <input #typeRef formControlName="type" id="type" autocomplete="off">
+            <input #typeRef formControlName="type" id="add-edit-work-time-form-type" autocomplete="off">
             <app-autocomplete [ref]="typeRef" [fc]="workTimeItemForm.get('type')" autocompleteType="type">
             </app-autocomplete>
         </div>
     </div>
     <div class="form-item">
-        <label for="customer">
+        <label for="add-edit-work-time-form-customer">
             Customer:
         </label>
         <div>
-            <input #customerRef formControlName="customer" id="customer" autocomplete="off">
+            <input #customerRef formControlName="customer" id="add-edit-work-time-form-customer" autocomplete="off">
             <app-autocomplete [ref]="customerRef" [fc]="workTimeItemForm.get('customer')" autocompleteType="customer">
             </app-autocomplete>
         </div>
     </div>
     <div class="form-item">
-        <label for="description">
+        <label for="add-edit-work-time-form-description">
             Description:
         </label>
         <div>
-            <input #descriptionRef formControlName="description" id="description" autocomplete="off">
+            <input #descriptionRef formControlName="description" id="add-edit-work-time-form-description" autocomplete="off">
             <app-autocomplete [ref]="descriptionRef" [fc]="workTimeItemForm.get('description')"
                 autocompleteType="description"></app-autocomplete>
         </div>
     </div>
     <div class="form-item">
-        <label for="url">
+        <label for="add-edit-work-time-form-url">
             Url:
         </label>
         <div>
-            <input #uriRef formControlName="uri" id="url" autocomplete="off">
+            <input #uriRef formControlName="uri" id="add-edit-work-time-form-url" autocomplete="off">
             <app-autocomplete [ref]="uriRef" [fc]="workTimeItemForm.get('uri')" autocompleteType="url">
             </app-autocomplete>
         </div>
     </div>
     <div class="form-item">
-        <label for="startDate">
+        <label for="add-edit-work-time-form-startDate">
             Start date:
         </label>
-        <input formControlName="startDate" id="startDate" autocomplete="off">
+        <input formControlName="startDate" id="add-edit-work-time-form-startDate" autocomplete="off">
     </div>
     <div class="form-item">
-        <label for="endDate">
+        <label for="add-edit-work-time-form-endDate">
             End date:
         </label>
-        <input formControlName="endDate" id="endDate" autocomplete="off">
+        <input formControlName="endDate" id="add-edit-work-time-form-endDate" autocomplete="off" appDateTime>
     </div>
     <div class="form-item">
-        <label for="spendTime">
+        <label for="add-edit-work-time-form-spendTime">
             Spend Time:
         </label>
-        <input formControlName="timeSpendInMinutes" id="spendTime" autocomplete="off">
+        <input formControlName="timeSpendInMinutes" id="add-edit-work-time-form-spendTime" autocomplete="off">
     </div>
     <button [disabled]="!workTimeItemForm.valid" type="submit" class="save-btn">Save</button>
-    <button (click)="buildForm()" type="button" class="cancel-btn">Cancel</button>
+    <button (click)="initComponent()" type="button" class="cancel-btn">Reset Form</button>
 </form>

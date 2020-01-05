@@ -69,11 +69,16 @@ export class AutocompleteComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.disposeFocusListner();
-    this.disposeFocusoutListner();
-    this.disposeInputListner();
-    this.disposeClickListner();
-    this.disposeKeyupListner();
+    if (this.disposeFocusListner)
+      this.disposeFocusListner();
+    if (this.disposeFocusoutListner)
+      this.disposeFocusoutListner();
+    if (this.disposeInputListner)
+      this.disposeInputListner();
+    if (this.disposeClickListner)
+      this.disposeClickListner();
+    if (this.disposeKeyupListner)
+      this.disposeKeyupListner();
     this.subscriptions.forEach(s => s.unsubscribe());
   }
 

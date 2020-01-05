@@ -23,6 +23,7 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
 import { NofyficationComponent } from './components/nofyfication/nofyfication.component';
 import { AutoCompleteDirective } from './directives/auto-complete.directive';
 import { AutocompleteComponent } from './components/autocomplete/autocomplete.component';
+import { DateTimeDirective } from './directives/date-time.directive';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { AutocompleteComponent } from './components/autocomplete/autocomplete.co
     WorkTimeItemListComponent,
     NofyficationComponent,
     // AutoCompleteDirective,
-    AutocompleteComponent
+    AutocompleteComponent,
+    DateTimeDirective
   ],
   imports: [
     BrowserModule,
