@@ -90,5 +90,6 @@ label {
 
     .save-btn {
         margin-top: 10px;
+        grid-column: 1 / -2;
     }
 }

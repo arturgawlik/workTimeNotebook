@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/state/app.state';
+import { AppState, getItems } from 'src/app/state/app.state';
 import { StartAddWorkTimeNote } from 'src/app/state/workTimeNote';
 import * as moment from 'moment';
 import { dateTimeFormat } from 'src/app/utils/constants';
@@ -24,6 +24,8 @@ export class AddEditWorkTimeItemComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.initComponent();
+    const sub = this.store.select(getItems).subscribe(() => this.initComponent());
+    this.subs.push(sub);
   }
 
   ngOnDestroy() {
