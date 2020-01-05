@@ -58,5 +58,6 @@
         <input formControlName="timeSpendInMinutes" id="add-edit-work-time-form-spendTime" autocomplete="off">
     </div>
     <button [disabled]="!workTimeItemForm.valid" type="submit" class="save-btn">Save</button>
-    <button (click)="initComponent()" type="button" class="cancel-btn">Reset Form</button>
+    <button (click)="resetTimeForm()" type="button" class="cancel-btn">Reset Time</button>
+    <button (click)="initComponent()" type="button" class="cancel-btn">Reset Whole Form</button>
 </form>

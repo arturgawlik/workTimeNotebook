@@ -26,7 +26,7 @@ export class AddEditWorkTimeItemComponent implements OnInit, OnDestroy {
     this.initComponent();
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy() {
     this.subs.forEach(s => s.unsubscribe());
   }
 
@@ -44,12 +44,19 @@ export class AddEditWorkTimeItemComponent implements OnInit, OnDestroy {
       if (this.workTimeItemForm.get('timeSpendInMinutes').dirty) {
         this.clearReactOnTimeChanges();
       }
-      this.calculateAndSetEndDateValue()
+      this.calculateAndSetEndDateValue();
     });
 
     this.subs.push(sub1);
     this.subs.push(sub2);
     this.subs.push(sub3);
+  }
+
+  resetTimeForm() {
+    this.workTimeItemForm.get('startDate').setValue(this.getCurrentDate());
+    this.workTimeItemForm.get('endDate').setValue(this.getCurrentDate());
+    this.workTimeItemForm.get('timeSpendInMinutes').setValue(0);
+    this.repeatEvery(this.setEndDate.bind(this), 1000 * 60);
   }
 
   private clearReactOnTimeChanges() {
