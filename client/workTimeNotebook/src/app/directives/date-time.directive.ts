@@ -1,6 +1,4 @@
 import { Directive, ElementRef, HostListener, OnInit } from '@angular/core';
-import * as moment from 'moment';
-import { dateTimeFormat } from '../utils/constants';
 
 @Directive({
   selector: '[appDateTime]'
@@ -15,8 +13,7 @@ export class DateTimeDirective implements OnInit {
   constructor(private el: ElementRef<HTMLInputElement>) {
   }
 
-  ngOnInit(): void {
-    this.setCurrentDateTime();
+  ngOnInit(){
   }
   
   valueChange(value: string) {
@@ -31,11 +28,6 @@ export class DateTimeDirective implements OnInit {
     } else if (value.length > 16) {
       this.el.nativeElement.value = value.slice(0, 16);
     }
-  }
-
-  setCurrentDateTime() {
-    const currDateTime = moment().format(dateTimeFormat);
-    this.el.nativeElement.value = currDateTime;
   }
 
 }

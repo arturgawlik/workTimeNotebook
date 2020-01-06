@@ -20,7 +20,8 @@ export class AddEditWorkTimeItemComponent implements OnInit, OnDestroy {
 
   workTimeItemForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private store: Store<AppState>) { }
+  constructor(private fb: FormBuilder, private store: Store<AppState>) {
+  }
 
   ngOnInit() {
     this.initComponent();
@@ -61,6 +62,12 @@ export class AddEditWorkTimeItemComponent implements OnInit, OnDestroy {
     this.repeatEvery(this.setEndDate.bind(this), 1000 * 60);
   }
 
+  submitForm() {
+    if (this.workTimeItemForm.valid) {
+      this.store.dispatch(new StartAddWorkTimeNote(this.workTimeItemForm.value));
+    }
+  }
+
   private clearReactOnTimeChanges() {
     if (this.timeout) {
       clearTimeout(this.timeout);
@@ -72,7 +79,7 @@ export class AddEditWorkTimeItemComponent implements OnInit, OnDestroy {
     }
   }
 
-  buildForm() {
+  private buildForm() {
     this.workTimeItemForm = this.fb.group({
       'id': [''],
       'type': ['', Validators.required],
@@ -83,12 +90,6 @@ export class AddEditWorkTimeItemComponent implements OnInit, OnDestroy {
       'endDate': [this.getCurrentDate(), Validators.required],
       'timeSpendInMinutes': [0, Validators.required]
     });
-  }
-
-  submitForm() {
-    if (this.workTimeItemForm.valid) {
-      this.store.dispatch(new StartAddWorkTimeNote(this.workTimeItemForm.value));
-    }
   }
 
   private getCurrentDate(): string {
