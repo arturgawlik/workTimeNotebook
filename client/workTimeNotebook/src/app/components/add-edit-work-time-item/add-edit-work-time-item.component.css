@@ -75,6 +75,10 @@ label {
     transform: translate3d(1px, 1px, 1px);
 }
 
+.invalid::after {
+    content: "";
+}
+
 
 @media (max-width: 970px) {
     form {

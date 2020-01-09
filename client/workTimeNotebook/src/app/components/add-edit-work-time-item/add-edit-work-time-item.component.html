@@ -4,7 +4,7 @@
             Type:
         </label>
         <div>
-            <input #typeRef formControlName="type" id="add-edit-work-time-form-type" autocomplete="off">
+            <input #typeRef formControlName="type" id="add-edit-work-time-form-type" autocomplete="off" class="invalid">
             <app-autocomplete [ref]="typeRef" [fc]="workTimeItemForm.get('type')" autocompleteType="type">
             </app-autocomplete>
         </div>
