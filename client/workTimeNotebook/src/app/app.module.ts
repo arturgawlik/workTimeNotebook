@@ -24,6 +24,7 @@ import { NofyficationComponent } from './components/nofyfication/nofyfication.co
 import { AutoCompleteDirective } from './directives/auto-complete.directive';
 import { AutocompleteComponent } from './components/autocomplete/autocomplete.component';
 import { DateTimeDirective } from './directives/date-time.directive';
+import { TooltipComponent } from './components/tooltip/tooltip.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { DateTimeDirective } from './directives/date-time.directive';
     NofyficationComponent,
     // AutoCompleteDirective,
     AutocompleteComponent,
-    DateTimeDirective
+    DateTimeDirective,
+    TooltipComponent
   ],
   imports: [
     BrowserModule,
