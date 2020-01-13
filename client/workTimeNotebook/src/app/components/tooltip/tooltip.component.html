@@ -1,1 +1,5 @@
-<p>tooltip works!</p>
+<div class="container" [style.display]="isElemHover ? 'block' : 'none'">
+    <div class="text-container">
+        {{message}}
+    </div>
+</div>

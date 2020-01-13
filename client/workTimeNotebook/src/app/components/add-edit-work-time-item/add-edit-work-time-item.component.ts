@@ -68,6 +68,83 @@ export class AddEditWorkTimeItemComponent implements OnInit, OnDestroy {
     }
   }
 
+  getTypeErrMsg() {
+    let msg: string;
+    const errors = this.workTimeItemForm.get('type').errors;
+    if (errors) {
+      if (errors.required) {
+        msg = 'Field Type is required!'
+      }
+    }
+    return msg;
+  }
+
+  getCustomerErrMsg() {
+    let msg: string;
+    const errors = this.workTimeItemForm.get('customer').errors;
+    if (errors) {
+      if (errors.required) {
+        msg = 'Field Customer is required!'
+      }
+    }
+    return msg;
+  }
+
+  getDescriptionErrMsg() {
+    let msg: string;
+    const errors = this.workTimeItemForm.get('description').errors;
+    if (errors) {
+      if (errors.required) {
+        msg = 'Field Description is required!'
+      }
+    }
+    return msg;
+  }
+
+  getUriErrMsg() {
+    let msg: string;
+    const errors = this.workTimeItemForm.get('uri').errors;
+    if (errors) {
+      if (errors.required) {
+        msg = 'Field Url is required!'
+      }
+    }
+    return msg;
+  }
+
+  getStartDateErrMsg() {
+    let msg: string;
+    const errors = this.workTimeItemForm.get('startDate').errors;
+    if (errors) {
+      if (errors.required) {
+        msg = 'Field Start date is required!'
+      }
+    }
+    return msg;
+  }
+
+  getEndDateErrMsg() {
+    let msg: string;
+    const errors = this.workTimeItemForm.get('endDate').errors;
+    if (errors) {
+      if (errors.required) {
+        msg = 'Field End date is required!'
+      }
+    }
+    return msg;
+  }
+
+  getSpendTimeErrMsg() {
+    let msg: string;
+    const errors = this.workTimeItemForm.get('timeSpendInMinutes').errors;
+    if (errors) {
+      if (errors.required) {
+        msg = 'Field Spend Time is required!'
+      }
+    }
+    return msg;
+  }
+
   private clearReactOnTimeChanges() {
     if (this.timeout) {
       clearTimeout(this.timeout);

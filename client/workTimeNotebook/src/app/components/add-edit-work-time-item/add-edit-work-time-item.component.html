@@ -4,7 +4,12 @@
             Type:
         </label>
         <div>
-            <input #typeRef formControlName="type" id="add-edit-work-time-form-type" autocomplete="off" class="invalid">
+            <div *ngIf="workTimeItemForm.get('type').touched && workTimeItemForm.get('type').invalid">
+                <app-tooltip [message]="getTypeErrMsg()" [connectedElementRef]="typeRef">
+                </app-tooltip>
+            </div>
+            <input #typeRef formControlName="type" id="add-edit-work-time-form-type" autocomplete="off"
+                [class.invalid]="workTimeItemForm.get('type').touched && workTimeItemForm.get('type').invalid">
             <app-autocomplete [ref]="typeRef" [fc]="workTimeItemForm.get('type')" autocompleteType="type">
             </app-autocomplete>
         </div>
@@ -14,7 +19,12 @@
             Customer:
         </label>
         <div>
-            <input #customerRef formControlName="customer" id="add-edit-work-time-form-customer" autocomplete="off">
+            <div *ngIf="workTimeItemForm.get('customer').touched && workTimeItemForm.get('customer').invalid">
+                <app-tooltip [message]="getCustomerErrMsg()" [connectedElementRef]="customerRef">
+                </app-tooltip>
+            </div>
+            <input #customerRef formControlName="customer" id="add-edit-work-time-form-customer" autocomplete="off"
+                [class.invalid]="workTimeItemForm.get('customer').touched && workTimeItemForm.get('customer').invalid">
             <app-autocomplete [ref]="customerRef" [fc]="workTimeItemForm.get('customer')" autocompleteType="customer">
             </app-autocomplete>
         </div>
@@ -24,7 +34,13 @@
             Description:
         </label>
         <div>
-            <input #descriptionRef formControlName="description" id="add-edit-work-time-form-description" autocomplete="off">
+            <div *ngIf="workTimeItemForm.get('description').touched && workTimeItemForm.get('description').invalid">
+                <app-tooltip [message]="getDescriptionErrMsg()" [connectedElementRef]="descriptionRef">
+                </app-tooltip>
+            </div>
+            <input #descriptionRef formControlName="description" id="add-edit-work-time-form-description"
+                autocomplete="off"
+                [class.invalid]="workTimeItemForm.get('description').touched && workTimeItemForm.get('description').invalid">
             <app-autocomplete [ref]="descriptionRef" [fc]="workTimeItemForm.get('description')"
                 autocompleteType="description"></app-autocomplete>
         </div>
@@ -34,7 +50,12 @@
             Url:
         </label>
         <div>
-            <input #uriRef formControlName="uri" id="add-edit-work-time-form-url" autocomplete="off">
+            <div *ngIf="workTimeItemForm.get('uri').touched && workTimeItemForm.get('uri').invalid">
+                <app-tooltip [message]="getUriErrMsg()" [connectedElementRef]="uriRef">
+                </app-tooltip>
+            </div>
+            <input #uriRef formControlName="uri" id="add-edit-work-time-form-url" autocomplete="off"
+                [class.invalid]="workTimeItemForm.get('uri').touched && workTimeItemForm.get('uri').invalid">
             <app-autocomplete [ref]="uriRef" [fc]="workTimeItemForm.get('uri')" autocompleteType="url">
             </app-autocomplete>
         </div>
@@ -43,19 +64,36 @@
         <label for="add-edit-work-time-form-startDate">
             Start date:
         </label>
-        <input formControlName="startDate" id="add-edit-work-time-form-startDate" autocomplete="off" appDateTime>
+        <div *ngIf="workTimeItemForm.get('startDate').touched && workTimeItemForm.get('startDate').invalid">
+            <app-tooltip [message]="getStartDateErrMsg()" [connectedElementRef]="startDateRef">
+            </app-tooltip>
+        </div>
+        <input #startDateRef formControlName="startDate" id="add-edit-work-time-form-startDate" autocomplete="off"
+            appDateTime [class.invalid]="workTimeItemForm.get('startDate').touched && workTimeItemForm.get('startDate').invalid">
     </div>
     <div class="form-item">
         <label for="add-edit-work-time-form-endDate">
             End date:
         </label>
-        <input formControlName="endDate" id="add-edit-work-time-form-endDate" autocomplete="off" appDateTime>
+        <div *ngIf="workTimeItemForm.get('endDate').touched && workTimeItemForm.get('endDate').invalid">
+            <app-tooltip [message]="getEndDateErrMsg()" [connectedElementRef]="endDateRef">
+            </app-tooltip>
+        </div>
+        <input #endDateRef formControlName="endDate" id="add-edit-work-time-form-endDate" autocomplete="off" appDateTime
+            [class.invalid]="workTimeItemForm.get('endDate').touched && workTimeItemForm.get('endDate').invalid">
     </div>
     <div class="form-item">
         <label for="add-edit-work-time-form-spendTime">
             Spend Time:
         </label>
-        <input formControlName="timeSpendInMinutes" id="add-edit-work-time-form-spendTime" autocomplete="off">
+        <div
+            *ngIf="workTimeItemForm.get('timeSpendInMinutes').touched && workTimeItemForm.get('timeSpendInMinutes').invalid">
+            <app-tooltip [message]="getSpendTimeErrMsg()" [connectedElementRef]="timeSpendInMinutesRef">
+            </app-tooltip>
+        </div>
+        <input #timeSpendInMinutesRef formControlName="timeSpendInMinutes" id="add-edit-work-time-form-spendTime"
+            autocomplete="off"
+            [class.invalid]="workTimeItemForm.get('timeSpendInMinutes').touched && workTimeItemForm.get('timeSpendInMinutes').invalid">
     </div>
     <button [disabled]="!workTimeItemForm.valid" type="submit" class="save-btn">Save</button>
     <button (click)="resetTimeForm()" type="button" class="cancel-btn">Reset Time</button>
