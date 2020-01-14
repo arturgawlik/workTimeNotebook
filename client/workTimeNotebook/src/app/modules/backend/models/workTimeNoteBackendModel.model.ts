@@ -4,7 +4,7 @@ export class WorkTimeNoteBackendModel {
     customer: string;
     description: string;
     uri: string;
-    startDate: Date;
-    endDate: Date;
+    startDate: string;
+    endDate: string;
     spentTimeInMinutes: number;
 }

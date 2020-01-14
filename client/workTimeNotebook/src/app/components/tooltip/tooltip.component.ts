@@ -21,20 +21,20 @@ export class TooltipComponent implements OnInit, OnDestroy {
 
   isElemHover = false;
 
-  private disposeFocusListner: Function;
-  private disposeBlurListner: Function;
+  private disposeMouseoverListner: Function;
+  private disposeMouseoutListner: Function;
 
   constructor(private renderer: Renderer2) {
   }
 
   ngOnInit() {
-    this.disposeFocusListner = this.renderer.listen(this.connectedElementRef, 'mouseover', () => {this.isElemHover = true; console.log(this.isElemHover);});
-    this.disposeBlurListner = this.renderer.listen(this.connectedElementRef, 'mouseout', () => {this.isElemHover = false; console.log(this.isElemHover);});
+    this.disposeMouseoverListner = this.renderer.listen(this.connectedElementRef, 'mouseover', () => {this.isElemHover = true; console.log(this.isElemHover);});
+    this.disposeMouseoutListner = this.renderer.listen(this.connectedElementRef, 'mouseout', () => {this.isElemHover = false; console.log(this.isElemHover);});
   }
 
   ngOnDestroy() {
-    this.disposeFocusListner();
-    this.disposeBlurListner();
+    this.disposeMouseoverListner();
+    this.disposeMouseoutListner();
   }
 
 }
