@@ -55,7 +55,7 @@ import { TooltipComponent } from './components/tooltip/tooltip.component';
     StoreDevtoolsModule.instrument({
       maxAge: 25
     }),
-    EffectsModule.forRoot(effects)
+    EffectsModule.forRoot(effects),
     // AuthModule dont need to import that module ?! - duno why this is working without that...
   ],
   providers: [

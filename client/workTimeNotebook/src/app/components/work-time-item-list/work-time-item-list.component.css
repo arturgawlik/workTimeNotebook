@@ -1,3 +1,57 @@
 :host {
-    background-color: tomato;
+    margin-top: 30px;
+    max-width: 961px;
+    /* background-color: tomato; */
+    width: 100vw;
+    overflow: scroll;
+    margin-bottom: 20px;
+    display: grid;
+}
+
+tbody {
+    font-size: 12px;
+}
+
+th {
+    text-align: left;
+    font-weight: lighter;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    color: black;
+    
+}
+
+table, th, td {
+    border-top: 0;
+}
+
+th {
+    background-color: pink;
+}
+
+th, td {
+    padding: 5px;
+}
+
+tr:nth-child(even) {
+    background-color: #fff;
+}
+
+tr:nth-child(odd) {
+    background-color: #ddd;
+}
+
+div {
+    width: calc(850px / 7);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;;
+}
+
+th {
+    position: sticky;
+    top: 0;
 }

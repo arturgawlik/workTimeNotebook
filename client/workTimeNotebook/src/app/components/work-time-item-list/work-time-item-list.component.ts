@@ -15,10 +15,11 @@ export class WorkTimeItemListComponent implements OnInit, OnDestroy {
 
   items: WorkTimeNoteItem[] = [];
 
-  constructor(private store: Store<AppState>) { }
+  constructor(private store: Store<AppState>) {
+  }
 
   ngOnInit() {
-    const sub = this.store.select(getItems).subscribe(i => this.items = i);
+    const sub = this.store.select(getItems).subscribe(i => this.items = i.slice(0, 1000));
     this.subs.push(sub);
   }
 

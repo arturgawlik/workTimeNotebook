@@ -1,6 +1,8 @@
 <table>
     <thead>
-        <th>Type</th>
+        <th>
+            <div>Type</div>
+        </th>
         <th>Customer</th>
         <th>Description</th>
         <th>Url</th>
@@ -8,4 +10,70 @@
         <th>End date</th>
         <th>Spend time</th>
     </thead>
+    <tbody>
+        <tr *ngFor="let item of items">
+            <td>
+                <div [title]="item.type">{{item.type}}</div>
+            </td>
+            <td>
+                <div [title]="item.customer">{{item.customer}}</div>
+            </td>
+            <td>
+                <div [title]="item.description">{{item.description}}</div>
+            </td>
+            <td>
+                <div [title]="item.uri">{{item.uri}}</div>
+            </td>
+            <td>
+                <div>{{item.startDate}}</div>
+            </td>
+            <td>
+                <div>{{item.endDate}}</div>
+            </td>
+            <td>
+                <div>{{item.timeSpentInMinutes}}</div>
+            </td>
+        </tr>
+    </tbody>
 </table>
+
+<!-- <table mat-table [dataSource]="items">
+
+    <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="customer">
+        <th mat-header-cell *matHeaderCellDef> Customer </th>
+        <td mat-cell *matCellDef="let element"> {{element.customer}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="url">
+        <th mat-header-cell *matHeaderCellDef> Url </th>
+        <td mat-cell *matCellDef="let element"> {{element.uri}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="startDate">
+        <th mat-header-cell *matHeaderCellDef> Start date </th>
+        <td mat-cell *matCellDef="let element"> {{element.startDate}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="endDate">
+        <th mat-header-cell *matHeaderCellDef> End date </th>
+        <td mat-cell *matCellDef="let element"> {{element.endDate}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="spendTime">
+        <th mat-header-cell *matHeaderCellDef> Spend time </th>
+        <td mat-cell *matCellDef="let element"> {{element.timeSpentInMinutes}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table> -->
