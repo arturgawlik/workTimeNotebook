@@ -19,7 +19,7 @@ export class WorkTimeItemListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    const sub = this.store.select(getItems).subscribe(i => this.items = i.slice(0, 1000));
+    const sub = this.store.select(getItems).subscribe(i => this.items = i);
     this.subs.push(sub);
   }
 

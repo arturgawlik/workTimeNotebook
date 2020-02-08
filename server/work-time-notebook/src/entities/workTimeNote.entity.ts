@@ -26,7 +26,7 @@ export class WorkTimeNote {
     endDate: Date;
 
     @Column()
-    timeSpentInMinutes: number;
+    timeSpendInMinutes: number;
 
     @ManyToOne(type => User, user => user.workTimeNotes, { cascade: true })
     user: User

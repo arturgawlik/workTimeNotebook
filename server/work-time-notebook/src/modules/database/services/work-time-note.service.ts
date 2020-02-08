@@ -19,7 +19,7 @@ export class WorkTimeNoteService {
         entity.description = workTimeNote.description;
         entity.endDate = workTimeNote.endDate;
         entity.startDate = workTimeNote.startDate;
-        entity.timeSpentInMinutes = 60;
+        entity.timeSpendInMinutes = workTimeNote.timeSpendInMinutes;
         entity.type = workTimeNote.type;
         entity.uri = workTimeNote.uri;
         entity.user = workTimeNote.user;
