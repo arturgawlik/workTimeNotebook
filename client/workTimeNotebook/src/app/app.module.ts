@@ -40,7 +40,7 @@ import { TooltipComponent } from './components/tooltip/tooltip.component';
     AddEditWorkTimeItemComponent,
     WorkTimeItemListComponent,
     NofyficationComponent,
-    // AutoCompleteDirective,
+    AutoCompleteDirective,
     AutocompleteComponent,
     DateTimeDirective,
     TooltipComponent

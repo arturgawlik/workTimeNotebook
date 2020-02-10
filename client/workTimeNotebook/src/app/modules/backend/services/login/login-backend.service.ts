@@ -12,7 +12,7 @@ export class LoginBackendService {
 
   login(username: string, password: string) {
     const url = _backend_url + _login_controller_url + _login_method_url;
-    return this.httpClient.post<{ access_token }>(url, { username, password });
+    return this.httpClient.post<{ access_token: string }>(url, { username, password });
   }
   
 }
